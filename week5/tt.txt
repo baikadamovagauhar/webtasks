@@ -1,0 +1,12 @@
+function bigImg(event){
+	document.getElementsByTagName("img")[0].src=event.currentTarget.src;
+}
+	
+	const image=document.querySelectorAll("img");
+	image[1].addEventListener("click",bigImg);
+	image[2].addEventListener("click",bigImg);
+	image[3].addEventListener("click",bigImg);
+	image[4].addEventListener("click",bigImg);
+	image[5].addEventListener("click",bigImg);
+
+	
