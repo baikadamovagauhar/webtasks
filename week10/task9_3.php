@@ -37,15 +37,20 @@ table tr td{
 <?php foreach($cars as $car) {
   echo "<option value='".$car["id"]."'>".$car["maker"]." ".$car["model"]." (".$car["year"].")";
   echo "</option>";
-} ?>
+} 
+?>
 </select>
 </form>
 <form action="">
-<table border="1" style="border-collapse: collapse">
-<tr><td>Maker:</td>
-      <td><select name="maker">
+<table border="1">
+<tr>
+<td>Maker:</td>
+<td><select name="maker">
         <?php foreach($makers as $maker){
-          if($selected_car == NULL){?> <option><?=$maker?></option><?php
+          if($selected_car == NULL){
+			  ?> 
+			  <option><?=$maker?></option>
+			  <?php
         }
           else{
             if($maker === $selected_car["maker"]) {
@@ -59,11 +64,10 @@ table tr td{
         ?>
       </select></td>
     </tr>
-    <tr>
-      <td>Year:</td>
+    <tr><td>Year:</td>
       <td><select name="year">
         <?php
-        for ($i=1975; $i < 2018; $i++) { 
+        for ($i=2018; $i > 1975; $i--) { 
            if ($selected_car == NULL) {
              ?> <option><?=$i?></option><?php
            }
@@ -126,26 +130,26 @@ table tr td{
       <td><?php 
       if ($selected_car == NULL) {
         ?>
-        <input type="checkbox" name="tax_payed" checked="checked">tax payed</br>
-        <input type="checkbox" name="tech_check">technical check pass</br>
-        <input type="checkbox" name="investment">doesn't require investemt</br>
+        <input type="checkbox" name="t_pay" checked="checked">tax payed</br>
+        <input type="checkbox" name="t_ch">technical check pass</br>
+        <input type="checkbox" name="invt">doesn't require investemt</br>
         <?php
       }
       else{
         if (in_array("tax_payed", $selected_car["additional"])) {
           ?><input type="checkbox" name="tax" checked="checked">tax payed</br><?php
         }else{
-          ?><input type="checkbox" name="tax_payed">tax payed</br><?php
+          ?><input type="checkbox" name="t_pay">tax payed</br><?php
         }
         if (in_array("check", $selected_car["additional"])) {
-          ?><input type="checkbox" name="tech_check" checked="checked">technical check pass</br><?php
+          ?><input type="checkbox" name="t_ch" checked="checked">technical check pass</br><?php
         }else{
-          ?><input type="checkbox" name="tech_check">technical check pass</br><?php
+          ?><input type="checkbox" name="t_ch">technical check pass</br><?php
         }
         if (in_array("investment", $selected_car["additional"])) {
-          ?><input type="checkbox" name="investment" checked="checked">doesn't require investemt</br><?php
+          ?><input type="checkbox" name="invt" checked="checked">doesn't require investemt</br><?php
         }else{
-          ?><input type="checkbox" name="investment">doesn't require investemt</br><?php
+          ?><input type="checkbox" name="invt">doesn't require investemt</br><?php
         }
       }
       ?>  
